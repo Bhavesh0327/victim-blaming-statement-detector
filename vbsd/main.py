@@ -4,6 +4,11 @@ import csv
 import pandas as pd
 from nltk.translate.bleu_score import sentence_bleu
 
+
+
+
+
+
 filename = "Andbrain_DataSet.csv"
 jarowinkler = JaroWinkler()
 #111111111111111111111111111111111111111111111111111
@@ -14,10 +19,10 @@ with open('dataset.txt') as f:
     mylist= [line.rstrip('\n') for line in f]
 for line in mylist:
     sim_index=jarowinkler.similarity(line, statement)
-    if sim_index>0.9:
+    if sim_index>0.80:
         print("1:-  "+str(sim_index))
         print("yes, it is similar to a victim blaming statement")
-        if sim_index != 1 and sim_index>0.9:
+        if sim_index != 1 and sim_index>0.8:
             break
 f.close()
 #222222222222222222222222222222222222222222222222222
